@@ -49,9 +49,9 @@ public class World
 		this.width = width;
 		this.height = height;
 		
-//		background = new Background("img_rainbow.png");
-//		background = new Background("img_blue.png");
-		background = new Background("img_bounds_test.png");
+//		background = new Background("res/img_rainbow.png");
+//		background = new Background("res/img_blue.png");
+		background = new Background("res/img_bounds_test.png");
 		
 		blocks = new BlockManager();
 		
