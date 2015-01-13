@@ -219,6 +219,14 @@ public abstract class Thing
 		return new PointD(pos.x+speed.getX(), pos.y+speed.getY());
 	}
 	
+	public void updateSensors()
+	{
+		left.tick();
+		right.tick();
+		top.tick();
+		bottom.tick();
+	}
+	
 	public void tick()
 	{
 		isColliding = false;

@@ -17,8 +17,7 @@ public class BlockManager
 		{
 			for(int x = 0; x < 20; x++)
 			{
-//				blocks.add(x, y, new DirtBlock(x, y));
-				blocks.add(x, y, makeBlock(x, y));
+				blocks.add(x, y, makeBlock(x, y)); //TODO DEBUG
 			}
 		}
 	}

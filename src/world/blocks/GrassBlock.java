@@ -18,4 +18,9 @@ public class GrassBlock extends Block
 	{
 		super.render(g);
 	}
+	
+	public String toString()
+	{
+		return "GrassBlock("+toPosString()+")";
+	}
 }

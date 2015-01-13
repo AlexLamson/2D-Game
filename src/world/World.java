@@ -114,8 +114,16 @@ public class World
 	public ArrayList<Thing> getCollidableThings()
 	{
 		ArrayList<Thing> output = new ArrayList<Thing>();
-		output.addAll(things);
-		output.addAll(blocks.blocks.toArrayList());
+		
+		for(int i = 0; i < things.size(); i++)
+			if(things.get(i).collides)
+				output.add(things.get(i));
+		
+		ArrayList<Block> allBlocks = blocks.blocks.toArrayList();
+		for(int i = 0; i < allBlocks.size(); i++)
+			if(allBlocks.get(i).collides)
+				output.add(allBlocks.get(i));
+		
 		return output;
 	}
 	

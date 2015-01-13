@@ -18,4 +18,9 @@ public class DirtBlock extends Block
 	{
 		super.render(g);
 	}
+	
+	public String toString()
+	{
+		return "DirtBlock("+toPosString()+")";
+	}
 }

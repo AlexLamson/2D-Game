@@ -13,10 +13,7 @@ public abstract class Block extends Thing
 	public int[] id;
 	public Animation anim;
 	
-	public Block()
-	{
-		super();
-	}
+	public Block(){ super(); } //constructor for placeholder blocks
 	
 	public Block(int[] id, int maxFrames, int xPos, int yPos)
 	{
@@ -46,5 +43,10 @@ public abstract class Block extends Thing
 //		g.drawRect((int)pos.x, (int)pos.y, (int)width, (int)height);
 		
 		anim.render(g);
+	}
+	
+	public String toString()
+	{
+		return "Block("+toPosString()+")";
 	}
 }

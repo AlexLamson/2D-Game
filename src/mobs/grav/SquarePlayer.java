@@ -31,6 +31,8 @@ public class SquarePlayer extends PolyMob
 		if(mustDie)
 			Main.isGameOver = true;
 		
+		updateSensors();
+		
 		if(Listening.get("space"))
 			mass += 5;
 		if(Listening.get("ctrl"))
