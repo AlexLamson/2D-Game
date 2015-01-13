@@ -18,10 +18,6 @@ import world.World;
 import mobs.*;
 import mobs.grav.SquarePlayer;
 
-//TO DO
-//make width & height private in the World class
-//fix background rendering for when camera is near edge and world size is big
-
 public class Main extends Applet implements Runnable
 {
 	private static final long serialVersionUID = 8864158495101925325L;				//because stupid warnings
