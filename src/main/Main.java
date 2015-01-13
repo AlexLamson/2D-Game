@@ -1,6 +1,5 @@
 package main;
 
-
 import input.Listening;
 
 import java.applet.*;
