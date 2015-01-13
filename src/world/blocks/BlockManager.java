@@ -13,8 +13,6 @@ public class BlockManager
 	{
 		Texture.loadTextures();
 		
-//		blocks.add(0, 0, new GrassBlock(0, 0)); //TODO DEBUG
-		
 		for(int y = 0; y < 20; y++)
 		{
 			for(int x = 0; x < 20; x++)

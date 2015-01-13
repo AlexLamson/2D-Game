@@ -6,7 +6,7 @@ public class GrassBlock extends Block
 {
 	public GrassBlock(int xPos, int yPos)
 	{
-		super(Texture.grass, 2, xPos, yPos);
+		super(Texture.grass, 1, xPos, yPos);
 	}
 	
 	public void tick()
