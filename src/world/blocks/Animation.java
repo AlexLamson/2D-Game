@@ -2,6 +2,7 @@ package world.blocks;
 
 import java.awt.Graphics;
 
+import main.Main;
 import main.Timer;
 
 public class Animation
@@ -9,11 +10,13 @@ public class Animation
 	private Block b;
 	private Timer timer;
 	
-	private int currFrame = 0;
-	private int maxFrame = 2;
+	private int currFrame;
+	private int maxFrame;
 	
-	public Animation(Block b, int maxFrames)
+	public Animation(Block b, int maxFrame)
 	{
+		currFrame = 0;
+		this.maxFrame = maxFrame-1;
 		this.b = b;
 		timer = new Timer(5);
 	}

@@ -25,6 +25,6 @@ public class Timer
 	
 	public void reset()
 	{
-		currTick = 0;
+		currTick = 1;
 	}
 }

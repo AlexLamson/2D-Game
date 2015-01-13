@@ -12,6 +12,9 @@ public class BlockManager
 	public BlockManager()
 	{
 		Texture.loadTextures();
+		
+//		blocks.add(0, 0, new GrassBlock(0, 0)); //TODO DEBUG
+		
 		for(int y = 0; y < 20; y++)
 		{
 			for(int x = 0; x < 20; x++)
@@ -25,17 +28,11 @@ public class BlockManager
 	public static Block makeBlock(int x, int y)
 	{
 		if(y < 8)
-		{
 			return new AirBlock(x, y);
-		}
 		else if(y == 8)
-		{
 			return new GrassBlock(x, y);
-		}
 		else
-		{
 			return new DirtBlock(x, y);
-		}
 	}
 	
 	public static double getScale()

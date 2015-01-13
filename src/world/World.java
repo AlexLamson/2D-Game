@@ -255,6 +255,8 @@ public class World
 		
 		background.tick();
 		
+		blocks.tick();
+		
 		timerTick();
 		
 		checkDead();

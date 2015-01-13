@@ -6,4 +6,5 @@ TO DO
 * implement Block collisions
 * when Thing collides, speed should be set to 0 in the correct axis
 * move all images to 'res' folder
-* test animated Textures by setting GrassBlock's maxFrames to 2
+* remove timer methods/variables from World class
+* add variable animation speed

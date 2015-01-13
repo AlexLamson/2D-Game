@@ -22,8 +22,13 @@ public abstract class Block extends Thing
 	{
 		super(xPos*BlockManager.getScale(), yPos*BlockManager.getScale(), 
 				BlockManager.getScale(), BlockManager.getScale());
+		
 		this.id = id;
 		anim = new Animation(this, maxFrames);
+		
+		isStatic = true;
+		isAffectedByGravity = false;
+		collides = true;
 	}
 	
 	public void tick()
