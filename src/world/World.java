@@ -24,14 +24,14 @@ public class World
 {
 	public int width, height;
 	
-	public boolean loopingEdges = false;
+	public boolean loopingEdges = true;
 	public boolean renderGrid = false;
 	
 	public static double globalSpeedLimit = 100.0;
 	
 	public double G = 1000.0; //gravitational constant
 	public boolean useMassGravity = false; //things with mass have gravity
-	public boolean useGlobalGravity = true;
+	public boolean useGlobalGravity = false;
 	public Vector globalGravity = new Vector(0, 1, true);
 	
 	public ArrayList<Thing> things = new ArrayList<Thing>();
@@ -228,12 +228,12 @@ public class World
 	
 	public double screenToWorldX(int x)
 	{
-		return x - Main.pixel.width/2 + Main.world.cam.pos.x;
+		return x - Main.pixel.width/2 + getCamX();
 	}
 	
 	public double screenToWorldY(int y)
 	{
-		return y - Main.pixel.height/2 + Main.world.cam.pos.y;
+		return y - Main.pixel.height/2 + getCamY();
 	}
 	
 	public boolean isVisible(int x, int y, int width, int height)

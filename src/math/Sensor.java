@@ -71,6 +71,11 @@ public class Sensor
 		colliding = false;
 	}
 	
+	public boolean isColliding()
+	{
+		return colliding;
+	}
+	
 	public void tick()
 	{
 //		reset();
@@ -80,7 +85,6 @@ public class Sensor
 	public void render(Graphics g)
 	{
 		Color color = new Color(0, 255, 0, 100);
-//		if(isIntersecting()) //TODO DEBUG
 		if(colliding)
 			color = new Color(255, 0, 0, 100);
 		g.setColor(color);

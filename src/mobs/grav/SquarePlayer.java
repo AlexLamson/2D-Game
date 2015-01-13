@@ -19,9 +19,9 @@ public class SquarePlayer extends PolyMob
 		
 		mass = 200;
 		isAffectedByGravity = false;
-		collides = false;
+		collides = true;
 		
-		if(!collides)
+		if(collides)
 			color = new Color(30, 230, 80, 100);
 	}
 	
@@ -31,13 +31,18 @@ public class SquarePlayer extends PolyMob
 		if(mustDie)
 			Main.isGameOver = true;
 		
-		updateSensors();
-		
 		if(Listening.get("space"))
 			mass += 5;
 		if(Listening.get("ctrl"))
 			mass += -5;
 //		Main.mq.addMessage("Mass: "+mass);
+		
+		updateSensors();
+		
+		if(bottom.isColliding())
+			friction = 0.1;
+		else
+			friction = 0.0;
 	}
 	
 	public void render(Graphics g)

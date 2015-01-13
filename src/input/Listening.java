@@ -22,7 +22,7 @@ public class Listening implements KeyListener, MouseListener, MouseMotionListene
 	public static Set<Integer> keys = new HashSet<Integer>();
 	
 	public static int currMouseState = 0;
-	public static String[] mouseStates = {"Placing mobs", "Possessing mobs", "Altering map"};
+	public static String[] mouseStates = {"Placing mobs", "Possessing mobs", "Altering map", "Debugging"}; //TODO DEBUG
 	
 	public static boolean get(String str)
 	{
@@ -164,6 +164,11 @@ public class Listening implements KeyListener, MouseListener, MouseMotionListene
 				bg.setColor(bg.getWidth()/2, bg.getHeight()/2, Color.magenta);
 				bg.setColor(0, 0, Color.magenta);
 			}
+			break;
+		case 3:
+			if(left)
+				Main.world.add(new DebugThing(worldX, worldY));
+			break;
 		}
 	}
 

@@ -63,13 +63,15 @@ public abstract class Thing
 	
 	public boolean isVisible()
 	{
-		int screenX = Main.world.worldToScreenX((int)pos.x);
-		int screenY = Main.world.worldToScreenY((int)pos.y);
+		int screenMinX = Main.world.worldToScreenX(pos.x-width/2);
+		int screenMaxX = Main.world.worldToScreenX(pos.x+width/2);
+		int screenMinY = Main.world.worldToScreenY(pos.y-height/2);
+		int screenMaxY = Main.world.worldToScreenY(pos.y+height/2);
 		
-		if(screenX-width/2 > Main.pixel.width || screenX+width/2 < 0)
+		if(screenMinX > Main.pixel.width || screenMaxX < 0)
 			return false;
 		
-		if(screenY-height/2 > Main.pixel.height|| screenY+height/2 < 0)
+		if(screenMinY > Main.pixel.height|| screenMaxY < 0)
 			return false;
 		
 		return true;
@@ -236,12 +238,15 @@ public abstract class Thing
 		{
 			if(speed.getMag() != 0)
 				speed = new Vector(0, 0);
-			return;
+			
+			return; //TODO maybe change this code to give more functionality to static Things
 		}
 		
+		//add gravity vector to all objects
 		if(Main.world.useGlobalGravity)
 			speed.addXY( Main.world.globalGravity.getX(), Main.world.globalGravity.getY() );
 		
+		//give objects gravitation pull
 		if(Main.world.useMassGravity && isAffectedByGravity)
 		{
 			double netX = 0, netY = 0;
@@ -265,12 +270,12 @@ public abstract class Thing
 				netY += v.getY();
 			}
 			
-			Vector accel = new Vector(netX, netY, true);
-//			Main.mq.addMessage("gravity accel: "+accel.getMag());
-			
-//			System.out.println("adding "+netX+", "+netY);
 			speed.addXY(netX, netY);
 		}
+		
+		//check if sensors are colliding
+		if(collides)
+			updateSensors();
 		
 		//prevent this Thing from moving out of  the world's bounds
 		if(!Main.world.loopingEdges)
@@ -280,7 +285,7 @@ public abstract class Thing
 		if(!Main.world.loopingEdges)
 			constrainSpeedToWorldBounds();
 		
-		//enfore a global speed limit
+		//enforce a global speed limit
 		if(speed.getMag() > World.globalSpeedLimit)
 			speed.setRotMag(speed.getRot(), World.globalSpeedLimit);
 		
@@ -299,6 +304,9 @@ public abstract class Thing
 		}
 		else //or constrain position to within world bounds
 		{
+			//TODO the code in this if statement seems to be doing 
+			//more work constraining that the constrainToWorldBounds method
+			
 			if(pos.x > Main.world.width)
 				pos.x = Main.world.width;
 			else if(pos.x < 0)
@@ -354,11 +362,6 @@ public abstract class Thing
 		
 	}
 	
-	public void render(Graphics g)
-	{
-		
-	}
-	
 	//TODO add arguments for color and a boolean for a normalized vector
 	public void renderSpeed(Graphics g)
 	{
@@ -372,6 +375,11 @@ public abstract class Thing
 		right.render(g);
 		top.render(g);
 		bottom.render(g);
+	}
+	
+	public void render(Graphics g)
+	{
+		
 	}
 	
 	public String toPosString()
