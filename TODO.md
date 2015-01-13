@@ -10,6 +10,5 @@ TO DO
 * add variable animation speed
 * Separate different visual Things
   * make a ColorThing (extends Thing and contains a Color)
-  * make a ImageThing (extends Thing and contains a BufferedImage)
-  * make a TextureThing (extends Thing and contains a Animation)
   * separate ImageMob into ImageMob and ImageThing
+  * make a TextureThing (extends Thing and contains a Animation)
