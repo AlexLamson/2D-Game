@@ -37,8 +37,6 @@ public class SquarePlayer extends PolyMob
 			mass += -5;
 //		Main.mq.addMessage("Mass: "+mass);
 		
-		updateSensors();
-		
 		if(bottom.isColliding())
 			friction = 0.1;
 		else

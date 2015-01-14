@@ -24,7 +24,7 @@ public class World
 {
 	public int width, height;
 	
-	public boolean loopingEdges = true;
+	public boolean loopingEdges = false;
 	public boolean renderGrid = false;
 	
 	public static double globalSpeedLimit = 100.0;

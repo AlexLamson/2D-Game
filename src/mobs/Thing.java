@@ -234,20 +234,15 @@ public abstract class Thing
 		isColliding = false;
 		
 		//don't move if static
-		if(isStatic)
-		{
-			if(speed.getMag() != 0)
-				speed = new Vector(0, 0);
-			
-			return; //TODO maybe change this code to give more functionality to static Things
-		}
+		if(isStatic && speed.getMag() != 0)
+			speed = new Vector(0, 0);
 		
 		//add gravity vector to all objects
-		if(Main.world.useGlobalGravity)
+		if(!isStatic && Main.world.useGlobalGravity)
 			speed.addXY( Main.world.globalGravity.getX(), Main.world.globalGravity.getY() );
 		
 		//give objects gravitation pull
-		if(Main.world.useMassGravity && isAffectedByGravity)
+		if(!isStatic && Main.world.useMassGravity && isAffectedByGravity)
 		{
 			double netX = 0, netY = 0;
 			for(int i = 0; i < Main.world.things.size(); i++)
@@ -290,11 +285,15 @@ public abstract class Thing
 			speed.setRotMag(speed.getRot(), World.globalSpeedLimit);
 		
 		//apply friction
-		speed.addRotMag(0, -friction*speed.getMag());
+		if(!isStatic)
+			speed.addRotMag(0, -friction*speed.getMag());
 		
 		//actually move the Thing
-		pos.x += speed.getX();
-		pos.y += speed.getY();
+		if(!isStatic)
+		{
+			pos.x += speed.getX();
+			pos.y += speed.getY();
+		}
 		
 		//make the edges of the window loop into each other
 		if(Main.world.loopingEdges)

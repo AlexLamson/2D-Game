@@ -38,12 +38,12 @@ public class Animation
 	public void render(Graphics g)
 	{
 		g.drawImage(Texture.tiles, 
-				(int)(b.pos.x), 
-				(int)(b.pos.y), 
-				(int)(b.pos.x + b.width), 
-				(int)(b.pos.y + b.height),
+				(int)(b.pos.x - b.width/2), 
+				(int)(b.pos.y - b.height/2), 
+				(int)(b.pos.x + b.width/2), 
+				(int)(b.pos.y + b.height/2), 
 				(b.id[0] + currFrame)*Texture.tileSize, 
-				(b.id[1])*Texture.tileSize,
+				(b.id[1])*Texture.tileSize, 
 				(b.id[0] + currFrame + 1)*Texture.tileSize, 
 				(b.id[1] + 1)*Texture.tileSize, 
 				null);

@@ -8,6 +8,7 @@ public class DebugThing extends Thing
 	public DebugThing(double x, double y)
 	{
 		super(x, y, 20, 20);
+		collides = true;
 	}
 	
 	public void tick()

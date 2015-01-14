@@ -24,6 +24,9 @@ public class BlockManager
 	
 	public static Block makeBlock(int x, int y)
 	{
+//		x += getScale()/2;
+//		y += getScale()/2;
+		
 		if(y < 8)
 			return new AirBlock(x, y);
 		else if(y == 8)

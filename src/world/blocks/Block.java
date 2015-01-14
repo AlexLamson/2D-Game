@@ -17,7 +17,7 @@ public abstract class Block extends Thing
 	
 	public Block(int[] id, int maxFrames, int xPos, int yPos)
 	{
-		super(xPos*BlockManager.getScale(), yPos*BlockManager.getScale(), 
+		super((xPos+0.5)*BlockManager.getScale(), (yPos+0.5)*BlockManager.getScale(), 
 				BlockManager.getScale(), BlockManager.getScale());
 		
 		this.id = id;
@@ -38,11 +38,12 @@ public abstract class Block extends Thing
 	{
 		super.render(g);
 		
+		anim.render(g);
+		
 //		g.setColor(RandomColor.nextColor());
 //		g.fillRect((int)pos.x, (int)pos.y, (int)width, (int)height);
-//		g.drawRect((int)pos.x, (int)pos.y, (int)width, (int)height);
-		
-		anim.render(g);
+		g.setColor(Color.blue);
+		g.drawRect((int)(pos.x-width/2), (int)(pos.y-height/2), (int)width, (int)height);
 	}
 	
 	public String toString()
