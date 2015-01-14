@@ -20,6 +20,7 @@ public class SquarePlayer extends PolyMob
 		mass = 200;
 		isAffectedByGravity = false;
 		collides = true;
+		usesSensors = true;
 		
 		if(collides)
 			color = new Color(30, 230, 80, 100);
@@ -37,6 +38,7 @@ public class SquarePlayer extends PolyMob
 			mass += -5;
 //		Main.mq.addMessage("Mass: "+mass);
 		
+		//TODO DEBUG
 		if(bottom.isColliding())
 			friction = 0.1;
 		else

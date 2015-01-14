@@ -33,6 +33,7 @@ public abstract class Thing
 	public boolean isColliding = false; //is touching another Thing
 	
 	public Sensor left, right, top, bottom;
+	public boolean usesSensors = false;
 	
 	public Thing()
 	{
@@ -44,6 +45,7 @@ public abstract class Thing
 		rot = new Rotation(0);
 		width = 1;
 		height = 1;
+		usesSensors = false;
 	}
 	
 	public Thing(double x, double y, double width, double height)
@@ -59,6 +61,7 @@ public abstract class Thing
 		right = new Sensor(this, width/2, -height/2, 10, height);
 		top = new Sensor(this, -width/2, -height/2-10, width, 10);
 		bottom = new Sensor(this, -width/2, height/2, width, 10);
+		usesSensors = false;
 	}
 	
 	public boolean isVisible()
@@ -94,7 +97,10 @@ public abstract class Thing
 	
 	public RectangleD getBounds()
 	{
-		return new RectangleD(pos, width, height);
+//		return new RectangleD(pos, width, height);
+		double x = pos.x-width/2;
+		double y = pos.y-height/2;
+		return new RectangleD(x, y, width, height);
 	}
 	
 	public double getMass()
@@ -269,7 +275,7 @@ public abstract class Thing
 		}
 		
 		//check if sensors are colliding
-		if(collides)
+		if(usesSensors && collides)
 			updateSensors();
 		
 		//prevent this Thing from moving out of  the world's bounds
