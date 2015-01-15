@@ -81,12 +81,12 @@ public class Background
 	
 	public int getCellWidth()
 	{
-		return Main.world.width/getWidth();
+		return Main.world.getWidth()/getWidth();
 	}
 	
 	public int getCellHeight()
 	{
-		return Main.world.height/getHeight();
+		return Main.world.getHeight()/getHeight();
 	}
 	
 	public int getCellX(int worldX)
@@ -106,8 +106,8 @@ public class Background
 	
 	public void render(Graphics g)
 	{
-		int worldWidth = Main.world.width;
-		int worldHeight = Main.world.height;
+		int worldWidth = Main.world.getWidth();
+		int worldHeight = Main.world.getHeight();
 		int screenWidth = Main.pixel.width;
 		int screenHeight = Main.pixel.height;
 		double cellWidth = 1.0*worldWidth/getWidth();
@@ -140,13 +140,13 @@ public class Background
 			int camY2 = (int)(camY+Main.pixel.height/2);
 			
 			if(camX1 < 0)
-				xi1 = (camX1-camX)/Main.world.width-1;
-			if(camX2 > Main.world.width)
-				xi2 = (camX2-camX)/Main.world.width+1+1;
+				xi1 = (camX1-camX)/Main.world.getWidth()-1;
+			if(camX2 > Main.world.getWidth())
+				xi2 = (camX2-camX)/Main.world.getWidth()+1+1;
 			if(camY1 < 0)
-				yi1 = (camY1-camY)/Main.world.height-1;
-			if(camY2 > Main.world.height)
-				yi2 = (camY2-camY)/Main.world.height+1+1;
+				yi1 = (camY1-camY)/Main.world.getHeight()-1;
+			if(camY2 > Main.world.getHeight())
+				yi2 = (camY2-camY)/Main.world.getHeight()+1+1;
 		}
 		
 		int oldX = (int) (-xPadding*cellWidth -camX+screenWidth);
@@ -162,8 +162,8 @@ public class Background
 		{
 			for(int xi = xi1; xi < xi2; xi++)
 			{
-				int x = oldX + xi*Main.world.width;
-				int y = oldY + yi*Main.world.height;
+				int x = oldX + xi*Main.world.getWidth();
+				int y = oldY + yi*Main.world.getHeight();
 				
 				g.drawImage(img, x, y, (int)(getWidth()*cellWidth), (int)(getHeight()*cellHeight), null);
 			}

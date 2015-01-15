@@ -22,7 +22,7 @@ import mobs.*;
 
 public class World
 {
-	public int width, height;
+	private int width, height;
 	
 	public boolean loopingEdges = false;
 	public boolean renderGrid = false;
@@ -56,22 +56,15 @@ public class World
 		
 //		for (int i = 0; i < 10; i++)
 //			add(new Mob(Math.random()*width, Math.random()*height));
-//		
-//		Mob mob1 = new Mob(width*3/4, height*3/4);
-//		Mob mob2 = new Mob(width*1/4, height*1/4);
-//		mob1.mobColor = new Color(255, 0, 255);
-//		mob2.mobColor = Color.cyan;
-//		mob1.speed = new Vector(15, 0, true);
-//		mob2.speed = new Vector(0, 0, true);
-////		mob1.friction = 0.01;
-//		mob1.mass = 1;
-//		mob2.mass = 2;
-//		mob1.radius = 10;
-//		mob2.radius = 10;
-////		add(mob1);
-////		add(mob2);
-		
 	}
+	
+	public int getWidth(){ return width; }
+	
+	public int getHeight(){ return height; }
+	
+	public void setWidth(int width){ this.width = width;}
+	
+	public void setHeight(int height){ this.height = height;}
 	
 	public double getCamX()
 	{
@@ -223,30 +216,16 @@ public class World
 		return y - Main.pixel.height/2 + getCamY();
 	}
 	
-	public boolean isVisible(int x, int y, int width, int height)
-	{
-		int screenX = Main.world.worldToScreenX((int)x);
-		int screenY = Main.world.worldToScreenY((int)y);
-		
-		if(screenX > Main.pixel.width || screenX+width < 0)
-			return false;
-		
-		if(screenY > Main.pixel.height|| screenY+height < 0)
-			return false;
-		
-		return true;
-	}
-	
 	public void tick()
 	{
 		if(Listening.get("1"))
-			width += 10;
+			setWidth(getWidth()+10);
 		if(Listening.get("2"))
-			width += -10;
+			setWidth(getWidth()-10);
 		if(Listening.get("3"))
-			height += 10;
+			setHeight(getHeight()+10);
 		if(Listening.get("4"))
-			height += -10;
+			setHeight(getHeight()-10);
 		
 		background.tick();
 		

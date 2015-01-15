@@ -56,14 +56,14 @@ public abstract class CircleThing extends Thing
 	@Override
 	public void constrainToWorldBounds()
 	{
-		if(pos.y+radius > Main.world.height)
-			pos.y = Main.world.height-radius;
+		if(pos.y+radius > Main.world.getHeight())
+			pos.y = Main.world.getHeight()-radius;
 		
 		if(pos.y-radius < 0)
 			pos.y = 0+radius;
 		
-		if(pos.x+radius > Main.world.width)
-			pos.x = Main.world.width-radius;
+		if(pos.x+radius > Main.world.getWidth())
+			pos.x = Main.world.getWidth()-radius;
 		
 		if(pos.x-radius < 0)
 			pos.x = 0+radius;

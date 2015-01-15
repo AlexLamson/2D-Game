@@ -83,9 +83,9 @@ public class Main extends Applet implements Runnable
 		
 //		world = new World((int)(worldSize*pixel.width), (int)(worldSize*pixel.height));
 		world = new World(1000, 1000);
-
-		double centerX = (world.width/2);
-		double centerY = (world.height/2);
+		
+		double centerX = (world.getWidth()/2);
+		double centerY = (world.getHeight()/2);
 		
 		SquarePlayer player = new SquarePlayer((int)centerX, (int)centerY);
 		world.add(player);

@@ -13,13 +13,13 @@ public class BlockManager
 	{
 		Texture.loadTextures();
 		
-		for(int y = 0; y < 20; y++)
-		{
-			for(int x = 0; x < 20; x++)
-			{
-				blocks.add(x, y, makeBlock(x, y)); //TODO DEBUG
-			}
-		}
+//		for(int y = 0; y < 20; y++)
+//		{
+//			for(int x = 0; x < 20; x++)
+//			{
+//				blocks.add(x, y, makeBlock(x, y)); //TODO DEBUG
+//			}
+//		}
 	}
 	
 	public static Block makeBlock(int x, int y)

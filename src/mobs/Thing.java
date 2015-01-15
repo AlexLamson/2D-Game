@@ -151,12 +151,12 @@ public abstract class Thing
 	{
 		double xDist = x-pos.x;
 		
-		if(Main.world.loopingEdges && xDist > Main.world.width/2)
-			xDist = Main.world.width - xDist;
+		if(Main.world.loopingEdges && xDist > Main.world.getWidth()/2)
+			xDist = Main.world.getWidth() - xDist;
 		
 		double yDist = y-pos.y;
-		if(Main.world.loopingEdges && yDist > Main.world.height/2)
-			yDist = Main.world.height - yDist;
+		if(Main.world.loopingEdges && yDist > Main.world.getHeight()/2)
+			yDist = Main.world.getHeight() - yDist;
 		
 		double distance = Math.sqrt(xDist*xDist + yDist*yDist);
 		return distance;
@@ -175,9 +175,9 @@ public abstract class Thing
 		double newX = speed.getX();
 		double newY = speed.getY();
 		
-		if(pos.y+height/2 > Main.world.height)
+		if(pos.y+height/2 > Main.world.getHeight())
 		{
-			pos.y = Main.world.height-height/2;
+			pos.y = Main.world.getHeight()-height/2;
 			newY = 0;
 		}
 		
@@ -187,9 +187,9 @@ public abstract class Thing
 			newY = 0;
 		}
 		
-		if(pos.x+width/2 > Main.world.width)
+		if(pos.x+width/2 > Main.world.getWidth())
 		{
-			pos.x = Main.world.width-width/2;
+			pos.x = Main.world.getWidth()-width/2;
 			newX = 0;
 		}
 		
@@ -207,13 +207,13 @@ public abstract class Thing
 		double newX = speed.getX();
 		double newY = speed.getY();
 		
-		if(pos.y+height/2+speed.getY() == Main.world.height)
+		if(pos.y+height/2+speed.getY() == Main.world.getHeight())
 			newY = 0;
 		
 		if(pos.y-height/2-speed.getY() == 0)
 			newY = 0;
 		
-		if(pos.x+width/2+speed.getX() == Main.world.width)
+		if(pos.x+width/2+speed.getX() == Main.world.getWidth())
 			newX = 0;
 		
 		if(pos.x-width/2-speed.getX() == 0)
@@ -304,21 +304,21 @@ public abstract class Thing
 		//make the edges of the window loop into each other
 		if(Main.world.loopingEdges)
 		{
-			pos.x = Mod.mod(pos.x, Main.world.width);
-			pos.y = Mod.mod(pos.y, Main.world.height);
+			pos.x = Mod.mod(pos.x, Main.world.getWidth());
+			pos.y = Mod.mod(pos.y, Main.world.getHeight());
 		}
 		else //or constrain position to within world bounds
 		{
 			//TODO the code in this if statement seems to be doing 
 			//more work constraining that the constrainToWorldBounds method
 			
-			if(pos.x > Main.world.width)
-				pos.x = Main.world.width;
+			if(pos.x > Main.world.getWidth())
+				pos.x = Main.world.getWidth();
 			else if(pos.x < 0)
 				pos.x = 0;
 			
-			if(pos.y > Main.world.height)
-				pos.y = Main.world.height;
+			if(pos.y > Main.world.getHeight())
+				pos.y = Main.world.getHeight();
 			if(pos.y < 0)
 				pos.y = 0;
 		}
