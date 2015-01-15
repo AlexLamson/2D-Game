@@ -39,8 +39,6 @@ public class World
 	public boolean controllerEnabled = true;
 	public AbsController controller = new Controller();
 	
-	public long timer = 0, maxTime = 40;
-
 	public Background background;
 	public BlockManager blocks = new BlockManager();
 	
@@ -180,17 +178,6 @@ public class World
 		return getCollidingThings(new PointD(x, y));
 	}
 	
-	public void timerTick()
-	{
-		timer--;
-		if (timer <= 0)
-		{
-			timer = maxTime;
-			
-//			you can add code here to add an enemy or something
-		}
-	}
-
 	public void checkDead()
 	{
 		for (Thing thing : getThings())
@@ -264,8 +251,6 @@ public class World
 		background.tick();
 		
 		blocks.tick();
-		
-		timerTick();
 		
 		checkDead();
 		

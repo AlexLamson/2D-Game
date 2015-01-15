@@ -27,9 +27,11 @@ public class BlockManager
 //		x += getScale()/2;
 //		y += getScale()/2;
 		
-		if(y < 8)
+		int groundLevel = 11;
+		
+		if(y < groundLevel)
 			return new AirBlock(x, y);
-		else if(y == 8)
+		else if(y == groundLevel)
 			return new GrassBlock(x, y);
 		else
 			return new DirtBlock(x, y);

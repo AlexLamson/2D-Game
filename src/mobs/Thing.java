@@ -343,24 +343,29 @@ public abstract class Thing
 				if(!t.collides)
 					continue;
 				
-				
-				//check if they are moving away from each other
-//				double oldDist = this.getDistanceFrom(t);
-//				double newDist = this.getNextPos().getDistance(t.getNextPos());
-//				
-//				if(newDist <= oldDist)
+				if(t.isStatic)
 				{
 					
-					//for now, assume that each collision is separate
-					double speedX1 = (this.speed.getX() * (this.mass - t.mass) + (2 * t.mass * t.speed.getX())) / (this.mass + t.mass);
-					double speedY1 = (this.speed.getY() * (this.mass - t.mass) + (2 * t.mass * t.speed.getY())) / (this.mass + t.mass);
-					double speedX2 = (t.speed.getX() * (t.mass - this.mass) + (2 * this.mass * this.speed.getX())) / (this.mass + t.mass);
-					double speedY2 = (t.speed.getY() * (t.mass - this.mass) + (2 * this.mass * this.speed.getY())) / (this.mass + t.mass);
-					
-					this.speed.setXY(speedX1, speedY1);
-					t.speed.setXY(speedX2, speedY2);
 				}
-				
+				else
+				{
+					//check if they are moving away from each other
+//					double oldDist = this.getDistanceFrom(t);
+//					double newDist = this.getNextPos().getDistance(t.getNextPos());
+//					
+//					if(newDist <= oldDist)
+					{
+						
+						//for now, assume that each collision is separate
+						double speedX1 = (this.speed.getX() * (this.mass - t.mass) + (2 * t.mass * t.speed.getX())) / (this.mass + t.mass);
+						double speedY1 = (this.speed.getY() * (this.mass - t.mass) + (2 * t.mass * t.speed.getY())) / (this.mass + t.mass);
+						double speedX2 = (t.speed.getX() * (t.mass - this.mass) + (2 * this.mass * this.speed.getX())) / (this.mass + t.mass);
+						double speedY2 = (t.speed.getY() * (t.mass - this.mass) + (2 * this.mass * this.speed.getY())) / (this.mass + t.mass);
+						
+						this.speed.setXY(speedX1, speedY1);
+						t.speed.setXY(speedX2, speedY2);
+					}
+				}
 			}
 		}
 		
