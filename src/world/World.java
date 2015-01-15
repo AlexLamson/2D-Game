@@ -92,14 +92,14 @@ public class World
 
 	public void remove(double x, double y)
 	{
-		for (int i = things.size() - 1; i >= 0; i--)
-			if (things.get(i).getDistanceFrom(x, y) < 20)
-				remove(things.get(i));
+		remove(new PointD(x, y));
 	}
 	
 	public void remove(PointD p)
 	{
-		remove(p.x, p.y);
+		for (int i = things.size() - 1; i >= 0; i--)
+			if (things.get(i).getBounds().contains(p))
+				remove(things.get(i));
 	}
 	
 	public ArrayList<Thing> getCollidableThings()
