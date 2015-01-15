@@ -3,20 +3,21 @@ package mobs;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 
 import math.Rotation;
 import math.Vector;
 
-public class PolyMob extends CircleThing
+public class PolyMob extends Thing
 {
 	private Polygon poly;
+	public Color color;
 	
-	public PolyMob(double x, double y, int nPoints)
+	public PolyMob(double x, double y, double width, double height, int nPoints)
 	{
-		super(x, y);
+		super(x, y, width, height);
 		setPoly(makePolygon(nPoints));
 		
-		radius = 20;
 		speed.setRotMag((int)(Math.random()*Rotation.maxDegrees), 5 + Math.random()*10);
 //		speed.setRotMag(0, 0);
 		color = new Color(140, 0, 200);
@@ -28,7 +29,7 @@ public class PolyMob extends CircleThing
 		int[] yPoints = new int[nPoints];
 		for(int i = 0; i < nPoints; i++)
 		{
-			Vector v = new Vector(i*Rotation.maxDegrees/nPoints + rot.getRot(), radius);
+			Vector v = new Vector(i*Rotation.maxDegrees/nPoints + rot.getRot(), width/2);
 			xPoints[i] = (int)v.getX();
 			yPoints[i] = (int)v.getY();
 		}

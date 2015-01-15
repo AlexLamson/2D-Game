@@ -14,8 +14,7 @@ import java.awt.Toolkit;
 import javax.swing.*;
 
 import world.World;
-import mobs.*;
-import mobs.grav.SquarePlayer;
+import mobs.Player;
 
 public class Main extends Applet implements Runnable
 {
@@ -87,7 +86,7 @@ public class Main extends Applet implements Runnable
 		double centerX = (world.getWidth()/2);
 		double centerY = (world.getHeight()/2);
 		
-		SquarePlayer player = new SquarePlayer((int)centerX, (int)centerY);
+		Player player = new Player((int)centerX, (int)centerY);
 		world.add(player);
 		world.cam = player;
 		

@@ -7,8 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import main.Main;
+import mobs.Player;
 import mobs.Thing;
-import mobs.grav.SquarePlayer;
 
 public class Sensor
 {

@@ -31,7 +31,7 @@ public class World
 	
 	public double G = 1000.0; //gravitational constant
 	public boolean useMassGravity = false; //things with mass have gravity
-	public boolean useGlobalGravity = false;
+	public boolean useGlobalGravity = true;
 	public Vector globalGravity = new Vector(0, 1, true);
 	
 	public ArrayList<Thing> things = new ArrayList<Thing>();
@@ -118,25 +118,6 @@ public class World
 		return output;
 	}
 	
-	public boolean isColliding(Thing t)
-	{
-//		if(t.isCollidingWithWorldEdge())
-//			return true;
-		
-		ArrayList<Thing> collThings = getCollidableThings();
-		
-		for(int i = 0; i < collThings.size(); i++)
-		{
-			if(collThings.get(i) == t)
-				continue;
-			
-			if(t.isCollidingWith(collThings.get(i)))
-				return true;
-		}
-		
-		return false;
-	}
-	
 	public ArrayList<Thing> getCollidingThings(Thing t)
 	{
 		ArrayList<Thing> colliding = new ArrayList<Thing>();
@@ -171,13 +152,6 @@ public class World
 		return getCollidingThings(new PointD(x, y));
 	}
 	
-	public void checkDead()
-	{
-		for (Thing thing : getThings())
-			if (thing.mustDie)
-				remove(thing);
-	}
-
 	public ArrayList<Thing> getThings()
 	{
 		ArrayList<Thing> thingsClone = new ArrayList<Thing>();
@@ -216,6 +190,13 @@ public class World
 		return y - Main.pixel.height/2 + getCamY();
 	}
 	
+	public void checkDead()
+	{
+		for (Thing thing : getThings())
+			if (thing.mustDie)
+				remove(thing);
+	}
+
 	public void tick()
 	{
 		if(Listening.get("1"))

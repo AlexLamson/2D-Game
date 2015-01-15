@@ -11,11 +11,11 @@ import javax.imageio.ImageIO;
 import main.Main;
 import math.Vector;
 
-public class ImageMob extends Thing
+public class ImageThing extends Thing
 {
 	private BufferedImage img;
 	
-	public ImageMob(double x, double y, BufferedImage img)
+	public ImageThing(double x, double y, BufferedImage img)
 	{
 		super(x, y, img.getWidth(), img.getHeight());
 		this.img = img;
@@ -24,7 +24,7 @@ public class ImageMob extends Thing
 //		speed = Vector.randomVector();
 	}
 	
-	public ImageMob(double x, double y, String path) throws IOException
+	public ImageThing(double x, double y, String path) throws IOException
 	{
 		this(x, y, ImageIO.read( new File( path ) ));
 	}

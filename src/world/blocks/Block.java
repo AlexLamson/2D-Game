@@ -42,8 +42,8 @@ public abstract class Block extends Thing
 		
 //		g.setColor(RandomColor.nextColor());
 //		g.fillRect((int)pos.x, (int)pos.y, (int)width, (int)height);
-		g.setColor(Color.blue);
-		g.drawRect((int)(pos.x-width/2), (int)(pos.y-height/2), (int)width, (int)height);
+//		g.setColor(Color.blue);
+//		g.drawRect((int)(pos.x-width/2), (int)(pos.y-height/2), (int)width, (int)height);
 	}
 	
 	public String toString()

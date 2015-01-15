@@ -350,10 +350,10 @@ public abstract class Thing
 				else
 				{
 					//check if they are moving away from each other
-//					double oldDist = this.getDistanceFrom(t);
-//					double newDist = this.getNextPos().getDistance(t.getNextPos());
-//					
-//					if(newDist <= oldDist)
+					double oldDist = this.getDistanceFrom(t);
+					double newDist = this.getNextPos().getDistance(t.getNextPos());
+					
+					if(newDist <= oldDist)
 					{
 						
 						//for now, assume that each collision is separate

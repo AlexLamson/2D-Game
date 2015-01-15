@@ -15,7 +15,6 @@ import java.util.Set;
 import world.Background;
 import main.Main;
 import mobs.*;
-import mobs.grav.GravityMob;
 
 public class Listening implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener
 {
@@ -142,7 +141,7 @@ public class Listening implements KeyListener, MouseListener, MouseMotionListene
 		case 0:
 			if(left)
 				for(int i = 0; i < 1; i++)
-					Main.world.add(new GravityMob(worldX, worldY));
+					Main.world.add(new Mob(worldX, worldY));
 			else if(right)
 				Main.world.remove(worldX, worldY);
 			break;

@@ -13,20 +13,13 @@ public class BlockManager
 	{
 		Texture.loadTextures();
 		
-//		for(int y = 0; y < 20; y++)
-//		{
-//			for(int x = 0; x < 20; x++)
-//			{
-//				blocks.add(x, y, makeBlock(x, y)); //TODO DEBUG
-//			}
-//		}
+		for(int y = 0; y < 20; y++)
+			for(int x = 0; x < 20; x++)
+				blocks.add(x, y, makeBlock(x, y));
 	}
 	
 	public static Block makeBlock(int x, int y)
 	{
-//		x += getScale()/2;
-//		y += getScale()/2;
-		
 		int groundLevel = 11;
 		
 		if(y < groundLevel)
