@@ -1,15 +1,11 @@
 package mobs;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
-import main.Main;
-import math.Vector;
 
 public class ImageThing extends Thing
 {

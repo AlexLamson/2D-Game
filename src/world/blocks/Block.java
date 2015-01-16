@@ -1,13 +1,8 @@
 package world.blocks;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 
-import main.Main;
-import math.RandomColor;
 import mobs.TextureThing;
-import mobs.Thing;
 
 public abstract class Block extends TextureThing
 {

@@ -2,10 +2,8 @@ package world.blocks;
 
 import java.awt.Graphics;
 
-import main.Main;
 import main.Timer;
 import mobs.TextureThing;
-import mobs.Thing;
 
 public class Animation
 {

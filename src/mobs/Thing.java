@@ -309,18 +309,7 @@ public abstract class Thing
 		}
 		else //or constrain position to within world bounds
 		{
-			//TODO the code in this if statement seems to be doing 
-			//more work constraining that the constrainToWorldBounds method
-			
-			if(pos.x > Main.world.getWidth())
-				pos.x = Main.world.getWidth();
-			else if(pos.x < 0)
-				pos.x = 0;
-			
-			if(pos.y > Main.world.getHeight())
-				pos.y = Main.world.getHeight();
-			if(pos.y < 0)
-				pos.y = 0;
+			constrainToWorldBounds();
 		}
 		
 		//prevent Things from intersecting with each other

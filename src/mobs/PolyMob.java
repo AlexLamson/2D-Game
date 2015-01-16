@@ -3,7 +3,6 @@ package mobs;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
-import java.awt.Rectangle;
 
 import math.Rotation;
 import math.Vector;

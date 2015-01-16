@@ -1,11 +1,8 @@
 package mobs;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import world.blocks.Animation;
-import world.blocks.BlockManager;
-import math.Rotation;
 
 public class TextureThing extends Thing
 {
