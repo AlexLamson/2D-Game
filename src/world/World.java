@@ -2,19 +2,17 @@ package world;
 
 import input.AbsController;
 import input.Controller;
+import input.GravController;
 import input.Listening;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import world.blocks.AirBlock;
 import world.blocks.Block;
 import world.blocks.BlockManager;
 import main.Main;
-import math.Array2D;
 import math.Mod;
 import math.PointD;
 import math.Vector;
@@ -37,7 +35,7 @@ public class World
 	public ArrayList<Thing> things = new ArrayList<Thing>();
 	public Thing cam;
 	public boolean controllerEnabled = true;
-	public AbsController controller = new Controller();
+	public AbsController controller = new GravController();
 	
 	public Background background;
 	public BlockManager blocks = new BlockManager();

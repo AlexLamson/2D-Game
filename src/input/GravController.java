@@ -1,14 +1,14 @@
 package input;
 
+import main.Main;
 import mobs.Thing;
 
 public class GravController extends AbsController
 {
-	public double jumpingSpeed = -30;
-	public double biggerJumpingSpeed = -60;
+	public double jumpingSpeed = -5;
+	public double biggerJumpingSpeed = -10;
 	public double walkingSpeed = 3;
 	public double runningSpeed = 8;
-	public boolean isJumping = false;
 	
 	public GravController()
 	{
@@ -24,35 +24,35 @@ public class GravController extends AbsController
 		
 		//TODO make all this code work
 		
-//		if(Listening.w && (t.collidingBottom() || t.collidingLeft() || t.collidingRight()))
-//			ySpeed += 1;
-//		if(Listening.s)
+		if(Listening.get('w') && t.bottom.isColliding())
+			ySpeed += 1;
+//		if(Listening.get('s'))
 //			ySpeed += -1;
-//		if(Listening.a)
-//			xSpeed += -1;
-//		if(Listening.d)
-//			xSpeed += 1;
-//		
-//		double xMoveSpeed = 0;
-//		if(xSpeed != 0)
-//		{
-//			xMoveSpeed = walkingSpeed*xSpeed;
-//			if(Listening.shift)
-//				xMoveSpeed = runningSpeed*xSpeed;
-//		}
-//		
-//		double yMoveSpeed = 0;
-//		if(ySpeed != 0)
-//		{
-//			yMoveSpeed = jumpingSpeed*ySpeed;
-//			if(Listening.shift)
-//				yMoveSpeed = biggerJumpingSpeed*ySpeed;
-//		}
-//		
-//		t.speed.addXY(t.friction*t.speed.getX(), 0);
-//		
-//		Main.mq.addMessage("xSpeed: "+xSpeed+" ySpeed: "+ySpeed);
-//		
-//		t.speed.addXY(xMoveSpeed, yMoveSpeed);
+		if(Listening.get('a'))
+			xSpeed += -1;
+		if(Listening.get('d'))
+			xSpeed += 1;
+		
+		double xMoveSpeed = 0;
+		if(xSpeed != 0)
+		{
+			xMoveSpeed = walkingSpeed*xSpeed;
+			if(Listening.get("shift"))
+				xMoveSpeed = runningSpeed*xSpeed;
+		}
+		
+		double yMoveSpeed = 0;
+		if(ySpeed != 0)
+		{
+			yMoveSpeed = jumpingSpeed*ySpeed;
+			if(Listening.get("shift"))
+				yMoveSpeed = biggerJumpingSpeed*ySpeed;
+		}
+		
+		t.speed.addXY(t.friction*t.speed.getX(), 0);
+		
+		Main.mq.addMessage("xSpeed: "+xSpeed+" ySpeed: "+ySpeed);
+		
+		t.speed.addXY(xMoveSpeed, yMoveSpeed);
 	}
 }
