@@ -8,7 +8,7 @@ public class AirBlock extends Block
 	
 	public AirBlock(int xPos, int yPos)
 	{
-		super(Texture.air, 1, xPos, yPos);
+		super(xPos, yPos, Texture.air, 1);
 		collides = false;
 	}
 	

@@ -6,7 +6,7 @@ public class DirtBlock extends Block
 {
 	public DirtBlock(int xPos, int yPos)
 	{
-		super(Texture.dirt, 1, xPos, yPos);
+		super(xPos, yPos, Texture.dirt, 1);
 	}
 	
 	public void tick()

@@ -4,20 +4,22 @@ import java.awt.Graphics;
 
 import main.Main;
 import main.Timer;
+import mobs.TextureThing;
+import mobs.Thing;
 
 public class Animation
 {
-	private Block b;
+	private TextureThing t;
 	private Timer timer;
 	
 	private int currFrame;
 	private int maxFrame;
 	
-	public Animation(Block b, int maxFrame)
+	public Animation(TextureThing t, int totalFrames)
 	{
 		currFrame = 0;
-		this.maxFrame = maxFrame-1;
-		this.b = b;
+		this.maxFrame = totalFrames-1;
+		this.t = t;
 		timer = new Timer(5);
 	}
 	
@@ -38,14 +40,14 @@ public class Animation
 	public void render(Graphics g)
 	{
 		g.drawImage(Texture.tiles, 
-				(int)(b.pos.x - b.width/2), 
-				(int)(b.pos.y - b.height/2), 
-				(int)(b.pos.x + b.width/2), 
-				(int)(b.pos.y + b.height/2), 
-				(b.id[0] + currFrame)*Texture.tileSize, 
-				(b.id[1])*Texture.tileSize, 
-				(b.id[0] + currFrame + 1)*Texture.tileSize, 
-				(b.id[1] + 1)*Texture.tileSize, 
+				(int)(t.pos.x - t.width/2), 
+				(int)(t.pos.y - t.height/2), 
+				(int)(t.pos.x + t.width/2), 
+				(int)(t.pos.y + t.height/2), 
+				(t.id[0] + currFrame)*Texture.tileSize, 
+				(t.id[1])*Texture.tileSize, 
+				(t.id[0] + currFrame + 1)*Texture.tileSize, 
+				(t.id[1] + 1)*Texture.tileSize, 
 				null);
 	}
 }
