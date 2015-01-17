@@ -1,6 +1,5 @@
 package input;
 
-import main.Main;
 import mobs.Thing;
 
 public class GravController extends AbsController
@@ -17,12 +16,10 @@ public class GravController extends AbsController
 
 	public void applyInput(Thing t)
 	{
-		t.rot.setRot(270); //?
+		t.rot.setRot(270); //makes triangle always point up
 		
 		double xSpeed = 0;
 		double ySpeed = 0;
-		
-		//TODO make all this code work
 		
 		if(Listening.get('w') && t.bottom.isColliding())
 			ySpeed += 1;
@@ -50,8 +47,6 @@ public class GravController extends AbsController
 		}
 		
 		t.speed.addXY(t.friction*t.speed.getX(), 0);
-		
-		Main.mq.addMessage("xSpeed: "+xSpeed+" ySpeed: "+ySpeed);
 		
 		t.speed.addXY(xMoveSpeed, yMoveSpeed);
 	}

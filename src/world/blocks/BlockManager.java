@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import main.Main;
 import math.Array2D;
+import math.PointD;
 
 public class BlockManager
 {
@@ -33,6 +34,20 @@ public class BlockManager
 	public static double getScale()
 	{
 		return 50;
+	}
+	
+	public Block getBlock(double x, double y)
+	{
+		double scale = getScale();
+		int xPos = (int)(x/scale);
+		int yPos = (int)(y/scale);
+		
+		return blocks.get(xPos, yPos);
+	}
+	
+	public Block getBlock(PointD p)
+	{
+		return getBlock(p.x, p.y);
 	}
 	
 	public void tick()
