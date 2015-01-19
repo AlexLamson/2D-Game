@@ -206,20 +206,38 @@ public abstract class Thing
 	{
 		double newX = speed.getX();
 		double newY = speed.getY();
+		boolean speedChanged = false;
 		
-		if(pos.y+height/2+speed.getY() == Main.world.getHeight())
+		//hit bottom world bound
+		if(pos.y+height/2+speed.getY() > Main.world.getHeight())
+		{
 			newY = 0;
+			speedChanged = true;
+		}
 		
-		if(pos.y-height/2-speed.getY() == 0)
+		//hit top world bound
+		if(pos.y-height/2-speed.getY() < 0)
+		{
 			newY = 0;
+			speedChanged = true;
+		}
 		
-		if(pos.x+width/2+speed.getX() == Main.world.getWidth())
+		//hit right world bound
+		if(pos.x+width/2+speed.getX() > Main.world.getWidth())
+		{
 			newX = 0;
+			speedChanged = true;
+		}
 		
-		if(pos.x-width/2-speed.getX() == 0)
+		//hit left world bound
+		if(pos.x-width/2-speed.getX() < 0)
+		{
 			newX = 0;
+			speedChanged = true;
+		}
 		
-		speed.setXY(newX, newY);
+		if(speedChanged)
+			speed.setXY(newX, newY);
 	}
 	
 	public PointD getNextPos()
@@ -282,9 +300,10 @@ public abstract class Thing
 		if(!Main.world.loopingEdges)
 			constrainToWorldBounds();
 		
-		//stop movement after hitting world edge
-		if(!Main.world.loopingEdges)
-			constrainSpeedToWorldBounds();
+		//TODO INCOMPLETE
+//		//stop movement after hitting world edge
+//		if(!Main.world.loopingEdges)
+//			constrainSpeedToWorldBounds();
 		
 		//enforce a global speed limit
 		if(speed.getMag() > World.globalSpeedLimit)

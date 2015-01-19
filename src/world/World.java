@@ -8,6 +8,7 @@ import input.Listening;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import world.blocks.Block;
@@ -50,6 +51,13 @@ public class World
 		background = new Background("res/img_bounds_test.png");
 		
 		blocks = new BlockManager();
+		
+		
+		//TODO see TODO.md
+//		try
+//		{
+//			add(new TestImageRotation(Math.random()*width, Math.random()*height, RANDOM_IMAGE));
+//		} catch (IOException e){ e.printStackTrace(); }
 		
 		
 //		for (int i = 0; i < 10; i++)

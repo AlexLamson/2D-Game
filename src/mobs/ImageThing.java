@@ -22,6 +22,11 @@ public class ImageThing extends Thing
 		this(x, y, ImageIO.read( new File( path ) ));
 	}
 	
+	public BufferedImage getImage()
+	{
+		return img;
+	}
+	
 	public void tick()
 	{
 		super.tick();

@@ -21,7 +21,7 @@ public class GravController extends AbsController
 		double xSpeed = 0;
 		double ySpeed = 0;
 		
-		if(Listening.get('w') && t.bottom.isColliding())
+		if(Listening.get('w'))
 			ySpeed += 1;
 //		if(Listening.get('s'))
 //			ySpeed += -1;

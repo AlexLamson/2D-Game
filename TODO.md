@@ -5,4 +5,10 @@ TO DO
 * implement Thing-Block collisions
 * when non-static Thing collides with a static Thing, speed should be set to 0 in the correct axis and non-static Thing should be moved to edge of static Thing
 * add variable animation speed
-* add Texture rotation (https://stackoverflow.com/questions/8639567/java-rotating-images)
+* add Rotation variable to Thing class
+* move rotation code to texture class
+* remove TestImageRotation class
+* create image package
+  * add Animation
+  * add Texture
+  * create ImageGenerator to hold Background's random image generation code
