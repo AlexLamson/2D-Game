@@ -8,7 +8,4 @@ TO DO
 * add Rotation variable to Thing class
 * move rotation code to texture class
 * remove TestImageRotation class
-* create image package
-  * add Animation
-  * add Texture
-  * create ImageGenerator to hold Background's random image generation code
+* override getBounds method for rotating thing

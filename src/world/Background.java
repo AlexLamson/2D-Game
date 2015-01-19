@@ -1,5 +1,7 @@
 package world;
 
+import image.ImageGenerator;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -17,7 +19,7 @@ public class Background
 	
 	public Background(int width, int height)
 	{
-		img = randomImage(width, height);
+		img = ImageGenerator.randomImage(width, height);
 	}
 	
 	public Background()
@@ -42,28 +44,7 @@ public class Background
 //			e.printStackTrace();
 			System.err.println("couldn't load background image from '"+path+"'");
 			
-			img = randomImage(10, 10);
-		}
-		
-		return img;
-	}
-	
-	public static BufferedImage randomImage(int width, int height)
-	{
-		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		
-		for(int y = 0; y < height; y++)
-		{
-			for(int x = 0; x < width; x++)
-			{
-				int rgb = Color.HSBtoRGB((float)Math.random(), 0.7f, 1.0f);
-				img.setRGB(x, y, rgb);
-				
-//				int r = (int)(256*Math.random());
-//				int g = (int)(256*Math.random());
-//				int b = (int)(256*Math.random());
-//				img.setRGB(x, y, new Color(r, g, b).getRGB());
-			}
+			img = ImageGenerator.randomImage(10, 10);
 		}
 		
 		return img;

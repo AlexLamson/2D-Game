@@ -1,5 +1,7 @@
 package world.blocks;
 
+import image.Texture;
+
 import java.awt.Graphics;
 
 public class DirtBlock extends Block

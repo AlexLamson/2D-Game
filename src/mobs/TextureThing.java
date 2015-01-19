@@ -1,8 +1,8 @@
 package mobs;
 
-import java.awt.Graphics;
+import image.Animation;
 
-import world.blocks.Animation;
+import java.awt.Graphics;
 
 public class TextureThing extends Thing
 {

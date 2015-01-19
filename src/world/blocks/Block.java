@@ -1,5 +1,7 @@
 package world.blocks;
 
+import image.Animation;
+
 import java.awt.Graphics;
 
 import mobs.TextureThing;

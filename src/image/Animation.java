@@ -1,4 +1,4 @@
-package world.blocks;
+package image;
 
 import java.awt.Graphics;
 
